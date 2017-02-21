@@ -2,18 +2,16 @@
 include_once "database.php";
 
 $tableCompany = "CREATE TABLE IF NOT EXISTS `tbl_company` (
-                  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-                  `company_name` VARCHAR(45) NOT NULL,
-                  `оffice_address` VARCHAR(75) NOT NULL,
-                  `creation_date` DATE NOT NULL,
-                  `site_adress` VARCHAR(45) NOT NULL,
-                  `phone_number` INT UNSIGNED NOT NULL,
-                  `contact_person` VARCHAR(45) NOT NULL,
-                  `description` TEXT NOT NULL,
-                  PRIMARY KEY (`id`),
-                  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
-                ENGINE = InnoDB
-                DEFAULT CHARACTER SET = utf8";
+                      `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+                      `company_name` VARCHAR(45) NOT NULL,
+                      `creation_date` DATE NOT NULL,
+                      `site_adress` VARCHAR(45) NOT NULL,
+                      `contact_person` VARCHAR(45) NOT NULL,
+                      `description` TEXT NOT NULL,
+                      PRIMARY KEY (`id`),
+                      UNIQUE INDEX `id_UNIQUE` (`id` ASC))
+                    ENGINE = InnoDB
+                    DEFAULT CHARACTER SET = utf8";
 $tableAddress = "CREATE TABLE IF NOT EXISTS `tbl_address` (
                   `id` INT NOT NULL AUTO_INCREMENT,
                   `company_id` INT UNSIGNED NOT NULL,
