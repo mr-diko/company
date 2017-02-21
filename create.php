@@ -9,6 +9,8 @@ $description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia
 
 $adress = "Великі підзалупки 13 Б";
 
+$telephone = "0342 50 50 50";
+
 
 try{
     $insertIntoCompany = "INSERT INTO tbl_company (id, company_name, creation_date, site_adress, contact_person, description)
@@ -21,6 +23,11 @@ VALUES (NULL, :company_name, :creation_date, :site_address, :contact_person, :de
                                               VALUES (NUll, :company_id, :adress)";
     $statement = $conn->prepare($insertIntoTbladdress);
     $statement->execute(array(":company_id"=>$companyId, ":adress"=>$adress));
+
+    $insertIntoPhoneNumbers = "INSERT INTO tbl_phone_numbers(id, company_id, telephone)
+                                              VALUES (NUll, :company_id, :telephone)";
+    $statement = $conn->prepare($insertIntoPhoneNumbers);
+    $statement->execute(array(":company_id"=>$companyId, ":telephone"=>$telephone));
 }catch (PDOException $ex){
     echo "<br>A database error occurred ".$ex->getMessage();
 }
