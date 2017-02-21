@@ -8,7 +8,7 @@ try{
     $conn = new PDO(DSN, USERNAME, PASSWORD, $options);
 
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "connecting successful";
+//    echo "connecting successful";
 
 }catch (PDOException $ex){
     echo "A database error occurred ".$ex->getMessage();
