@@ -1,7 +1,7 @@
 <?php
 define("DSN", "mysql:host=localhost;dbname=company");
 define("USERNAME", "root");
-define("PASSWORD", "root");
+define("PASSWORD", "");
 $options = array(PDO::ATTR_PERSISTENT => true);
 
 try{

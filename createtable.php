@@ -23,7 +23,7 @@ $tableAddress = "CREATE TABLE IF NOT EXISTS `tbl_address` (
                     FOREIGN KEY (`company_id`)
                     REFERENCES `tbl_company` (`id`)
                     ON DELETE CASCADE
-                    ON UPDATE NO ACTION)
+                    ON UPDATE CASCADE)
                 ENGINE = InnoDB
                 DEFAULT CHARACTER SET = utf8";
 $tablePhoneNumbers = "CREATE TABLE IF NOT EXISTS `tbl_phone_numbers` (
