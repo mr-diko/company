@@ -28,10 +28,25 @@ $tableAddress = "CREATE TABLE IF NOT EXISTS `tbl_address` (
                     ON UPDATE NO ACTION)
                 ENGINE = InnoDB
                 DEFAULT CHARACTER SET = utf8";
+$tablePhoneNumbers = "CREATE TABLE IF NOT EXISTS `tbl_phone_numbers` (
+                      `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+                      `company_id` INT UNSIGNED NOT NULL,
+                      `telephone` VARCHAR(45) NOT NULL,
+                      PRIMARY KEY (`id`),
+                      UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+                      INDEX `fk_tbl_phone_numbers_1_idx` (`company_id` ASC),
+                      CONSTRAINT `fk_tbl_phone_numbers_1`
+                        FOREIGN KEY (`company_id`)
+                        REFERENCES `tbl_company` (`id`)
+                        ON DELETE CASCADE
+                        ON UPDATE CASCADE)
+                    ENGINE = InnoDB
+                    DEFAULT CHARACTER SET = utf8";
 
 try{
     $conn->query($tableCompany);
     $conn->query($tableAddress);
+    $conn->query($tablePhoneNumbers);
 
     echo "<br>Tables created";
 }catch(PDOException $ex){
