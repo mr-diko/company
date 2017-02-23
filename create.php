@@ -1,6 +1,5 @@
 <?php
 include_once "database.php";
-include_once "functions.php";
 
 $args = [
     "companyName" => FILTER_SANITIZE_STRING,
@@ -18,15 +17,6 @@ $args = [
     ]
 ];
 $checkedInputs = filter_input_array(INPUT_POST, $args);
-
-$companyName = filter_var("SoftGroup", FILTER_SANITIZE_STRING);
-//$creationDate= date("Y.m.d", mktime(0,0,0,03,06,1989));
-$siteAddress=filter_var("softgroup.com", FILTER_SANITIZE_ENCODED);
-$contactPerson=filter_var("Vasya Pupkin", FILTER_SANITIZE_STRING);
-$description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia fugit officiis, suscipit perspiciatis, totam incidunt eos quaerat ad maxime quia numquam blanditiis quisquam aperiam officia minima consequatur, distinctio praesentium dolor, aspernatur sapiente possimus cupiditate. Recusandae earum error optio quidem possimus nisi sint, sed nulla nostrum voluptas voluptatibus, esse modi, magni.";
-
-
-
 
 try{
     $insertIntoCompany = "INSERT INTO tbl_company (id, company_name, creation_date, site_adress, contact_person, description)
@@ -52,6 +42,8 @@ VALUES (NULL, :company_name, :creation_date, :site_address, :contact_person, :de
         $statement->bindParam(":telephone", $val);
         $statement->execute();
     }
+
+
 }catch (PDOException $ex){
     echo "<br>A database error occurred ".$ex->getMessage();
 }
