@@ -13,14 +13,16 @@ try{
     $company = $stmtComp->fetch(PDO::FETCH_ASSOC);
 
     $stmtPhone = $conn->query($queryPhone);
+
     while($row = $stmtPhone->fetch(PDO::FETCH_ASSOC)){
-        $phone .= "<li>{$row['telephone']}</li>";
+        $ArrPhone[] = $row['telephone'];
     }
+
 
 
     $stmtAddress = $conn->query($queryAddress);
     while($row = $stmtAddress->fetch(PDO::FETCH_ASSOC)){
-        $address .= "<li>{$row['adress']}</li>";
+        $arrAddress[] = $row['adress'];
     }
 
 }catch(PDOException $ex){
