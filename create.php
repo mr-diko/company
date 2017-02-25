@@ -1,5 +1,9 @@
 <?php
 include_once "database.php";
+if (in_array("", $_POST)) {
+    header("Location: form.php?warning=1");
+    die();
+}
 
 $args = [
     "companyName" => FILTER_SANITIZE_STRING,

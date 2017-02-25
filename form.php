@@ -13,6 +13,7 @@
     </style>
 </head>
 <body>
+<?php if($_GET['warning']) echo "<p style='color: red;'>Заповніть всі поля</p>"; ?>
 <form action="create.php" method="post">
     <table>
         <tr>

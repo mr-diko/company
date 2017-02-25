@@ -33,6 +33,7 @@ try{
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <h1><?php echo $company['company_name'] ?></h1>
@@ -48,6 +49,7 @@ try{
 <p>Контактна особа: <?php echo $company['contact_person'] ?></p>
 <p>Дата створення: <?php echo $company['creation_date'] ?></p>
 <p><?php echo $company['description'] ?></p>
+<p><a href="index.php"><На головну</a></p>
 </body>
 </html>
 

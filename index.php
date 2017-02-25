@@ -17,12 +17,15 @@ try{
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>List of companies</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <ul>
-        <?php echo $compList; ?>
-        <li><a href="form.php">+Додати компанію+</a></li>
-    </ul>
+    <div class="vertical-menu">
+        <ul class="vertical-menu">
+            <?php echo $compList; ?>
+            <li><a href="form.php">+Додати компанію+</a></li>
+        </ul>
+    </div>
 </body>
 </html>
