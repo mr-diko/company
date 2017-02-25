@@ -1,4 +1,5 @@
 <?php
+    include_once "database.php";
     include_once "read.php";
 
     function outputList(array $arr) {
@@ -7,7 +8,9 @@
         }
 
         return $list;
-}
+    }
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -30,6 +33,7 @@
 <p>Контактна особа: <?php echo $company['contact_person'] ?></p>
 <p>Дата створення: <?php echo $company['creation_date'] ?></p>
 <p><?php echo $company['description'] ?></p>
-<p><a href="index.php"><На головну</a><a href="update.php?id=<?php echo $companyId ?>">Редагувати</a></p>
+<p><a href="update.php?id=<?php echo $companyId ?>">Редагувати</a></p>
+<p><a href="index.php"><На головну</a></p>
 </body>
 </html>

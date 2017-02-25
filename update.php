@@ -1,9 +1,12 @@
 <?php
     include_once "read.php";
 
-    function inputList(array $arr) {
+    function inputList(array $arr, $mark) {
         foreach ($arr as $item) {
-            $inputs .= "<td class=\"input-cell\"><input type=\"text\" name=\"telephone[]\" value=\"{$item}\"></td>";
+            if ($mark == 'address')
+                $inputs .= "<td class=\"input-cell\"><input type=\"text\" name=\"address[]\" value=\"{$item}\"></td>";
+            else
+                $inputs .= "<td class=\"input-cell\"><input type=\"text\" name=\"telephone[]\" value=\"{$item}\"></td>";
         }
 
         return $inputs;
@@ -45,13 +48,14 @@
             <td><input type="text" name="contactPerson" value="<?php echo $company['contact_person'] ?>"></td>
         </tr>
         <tr>
-            <td>Адреса офісу <a href="#" class="add-input">додати ще одну адресу</a></td>
-            <td class="input-cell"><input type="text" name="address[]"></td>
+            <td>Адреса офісу <a href="#"</td>
+<!--            <td class="input-cell"><input type="text" name="address[]"></td>-->
+            <?php echo inputList($arrAddress, "address"); ?>
         </tr>
         <tr>
-            <td>Номер телефону <a href="#" class="add-input">додати ще один номер телефону</a></td>
+            <td>Номер телефону</td>
 <!--            <td class="input-cell"><input type="text" name="telephone[]" ></td>-->
-            <?php echo inputList($ArrPhone); ?>
+            <?php echo inputList($ArrPhone, "phone"); ?>
         </tr>
         <tr>
             <td>Опис діяльності</td>
@@ -59,6 +63,8 @@
         </tr>
     </table>
     <input type="submit" value="Відправити">
+    <p><a href="index.php"><На головну</a></p>
+
 </form>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script>

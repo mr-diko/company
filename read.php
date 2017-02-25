@@ -15,14 +15,16 @@ try{
     $stmtPhone = $conn->query($queryPhone);
 
     while($row = $stmtPhone->fetch(PDO::FETCH_ASSOC)){
-        $ArrPhone[] = $row['telephone'];
+        if (!empty($row['telephone']))
+            $ArrPhone[] = $row['telephone'];
     }
 
 
 
     $stmtAddress = $conn->query($queryAddress);
     while($row = $stmtAddress->fetch(PDO::FETCH_ASSOC)){
-        $arrAddress[] = $row['adress'];
+        if (!empty($row['adress']))
+            $arrAddress[] = $row['adress'];
     }
 
 }catch(PDOException $ex){
