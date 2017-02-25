@@ -7,7 +7,7 @@ try{
     $stmt = $conn->query($selectQuery);
 
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        $compList .= "<li><a href='read.php?id={$row['id']}'>{$row['company_name']}</a></li>";
+        $compList .= "<li><a href='CompanyPage.php?id={$row['id']}'>{$row['company_name']}</a></li>";
     }
 }catch(PDOException $ex){
     echo "<br>A database error occured ".$ex->getMessage();
