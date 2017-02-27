@@ -24,16 +24,16 @@
 <p><?php echo $company['site_adress'] ?></p>
 <p>Телефон</p>
 <ul>
-    <?php echo outputList($ArrPhone); ?>
+    <?php echo outputList($ArrPhone['telephone']); ?>
 </ul>
 <p>Адреса офісу</p>
 <ul>
-    <?php echo outputList($arrAddress); ?>
+    <?php echo outputList($arrAddress['address']); ?>
 </ul>
 <p>Контактна особа: <?php echo $company['contact_person'] ?></p>
 <p>Дата створення: <?php echo $company['creation_date'] ?></p>
 <p><?php echo $company['description'] ?></p>
-<p><a href="update.php?id=<?php echo $companyId ?>">Редагувати</a></p>
+<p><a href="updateForm.php?id=<?php echo $companyId ?>">Редагувати</a></p>
 <p><a href="index.php"><На головну</a></p>
 </body>
 </html>

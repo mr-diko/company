@@ -2,15 +2,13 @@
     include_once "read.php";
 
     function inputList(array $arr, $mark) {
-        foreach ($arr as $item) {
-            if ($mark == 'address')
-                $inputs .= "<td class=\"input-cell\"><input type=\"text\" name=\"address[]\" value=\"{$item}\"></td>";
-            else
-                $inputs .= "<td class=\"input-cell\"><input type=\"text\" name=\"telephone[]\" value=\"{$item}\"></td>";
+        foreach($arr[$mark] as $val){
+            $input .= "<input type='text' name='{$mark}[]' value=\"$val\">";
         }
 
-        return $inputs;
+        return $input;
     }
+
 ?>
 
 <!doctype html>
@@ -28,8 +26,7 @@
     </style>
 </head>
 <body>
-<?php if($_GET['warning']) echo "<p style='color: red;'>Заповніть всі поля</p>"; ?>
-<form action="create.php" method="post">
+<form action="update.php?<?php echo "id={$companyId}"; ?>" method="post">
     <table>
         <tr>
             <td>Назва компанії</td>
@@ -49,38 +46,37 @@
         </tr>
         <tr>
             <td>Адреса офісу <a href="#"</td>
-<!--            <td class="input-cell"><input type="text" name="address[]"></td>-->
-            <?php echo inputList($arrAddress, "address"); ?>
+            <td><?php echo inputList($arrAddress, "address"); ?></td>
         </tr>
         <tr>
             <td>Номер телефону</td>
-<!--            <td class="input-cell"><input type="text" name="telephone[]" ></td>-->
-            <?php echo inputList($ArrPhone, "phone"); ?>
+            <td><?php echo inputList($ArrPhone, "telephone"); ?></td>
         </tr>
         <tr>
             <td>Опис діяльності</td>
             <td><textarea name="description" cols="30" rows="10"><?php echo $company['description'] ?></textarea></td>
+        </tr>
+        <tr>
+            <td>
+                <?php
+                    foreach ($arrAddress['id'] as $id){
+                        echo "<input type='hidden' name='addressId[]' value='$id'>";
+                    }
+                ?>
+            </td>
+            <td>
+                <?php
+                    foreach ($ArrPhone['id'] as $id){
+                        echo "<input type='hidden' name='phoneId[]' value='$id'>";
+                    }
+                ?>
+            </td>
         </tr>
     </table>
     <input type="submit" value="Відправити">
     <p><a href="index.php"><На головну</a></p>
 
 </form>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-<script>
-    $(function() {
-        function cloneInput($input) {
-            return $input.clone().val('');
-        }
-
-        $('.add-input').on('click', function() {
-            var $inputContainer = $(this).closest('tr').find('.input-cell');
-            var $newInput = cloneInput($inputContainer.find('input').first());
-
-            $inputContainer.append($('<br />')).append($newInput);
-        });
-    });
-</script>
 </body>
 </html>
 
