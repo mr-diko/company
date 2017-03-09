@@ -4,7 +4,12 @@ class Database {
     public $isConn;
     protected $datab;
 //  connect to db
-    public function __construct($username ="root", $password = "", $host = "localhost", $dbname = 'company', $options = []){
+    public function __construct(
+                                $username ="root",
+                                $password = "",
+                                $host = "localhost",
+                                $dbname = 'company',
+                                $options = []){
         $this->isConn = true;
         try{
             $this->datab = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username, $password, $options);
@@ -33,7 +38,7 @@ public function getRow($query, $params = []){
 }
 
 //  get rows
-public function getRows(){
+public function getRows($query, $params = []){
     try{
         $stmt = $this->datab->prepare($query);
         $stmt->execute($params);
