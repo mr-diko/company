@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>My CMS</title>
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>/css/app.css">
+	<title>Company</title>
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>/css/style.css">
 </head>
 <body>
 	<div class="wrapper">
-<!--		<h1>My cms</h1>-->

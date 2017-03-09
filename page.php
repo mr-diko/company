@@ -8,12 +8,10 @@ if (empty($_GET['page'])) {
     $id = $_GET['page'];
 
     $page = $db->getRow("
-			SELECT * 
-			FROM tbl_company
-			WHERE id = ?
-	", [$id]);
-
-    die_r($page);
+                        SELECT * 
+                        FROM tbl_company
+                        WHERE id = ?
+                        ", [$id]);
 
 }
 
