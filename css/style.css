@@ -43,10 +43,7 @@ table {
 table th{
 	text-align: left;
 }
-.faded{
+.float{
+	float: left;
 	color: #bbb;
-}
-
-ul {
-	list-style-type: none;
 }
